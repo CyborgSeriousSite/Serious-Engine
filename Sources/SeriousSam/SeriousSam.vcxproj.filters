@@ -237,6 +237,9 @@
     <ClCompile Include="Query\Legacy_Functions.cpp">
       <Filter>Source Files\Query</Filter>
     </ClCompile>
+    <ClCompile Include="GUI\Menus\MSelectionList.cpp">
+      <Filter>Source Files\GUI\Menus</Filter>
+    </ClCompile>
     <ClCompile Include="Query\LegacyClientQuery.cpp">
       <Filter>Source Files\Query</Filter>
     </ClCompile>
@@ -454,6 +457,9 @@
     </ClInclude>
     <ClInclude Include="Cecil\CecilExtensions.h">
       <Filter>Header Files\Cecil headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Menus\MSelectionList.h">
+      <Filter>Header Files\GUI headers\Menus headers</Filter>
     </ClInclude>
     <ClInclude Include="Query\QueryMgr.h">
       <Filter>Header Files\Query headers</Filter>
