@@ -74,7 +74,6 @@ BOOL CMGVarButton::OnKeyDown(int iVKey) {
 
   if (iVKey == VK_RETURN) {
     FlushVarSettings(TRUE);
-    void MenuGoToParent(void);
     MenuGoToParent();
     return TRUE;
   }

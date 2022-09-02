@@ -268,7 +268,6 @@ static void ConfirmYes(void) {
   if (gmCurrent._pConfimedYes != NULL) {
     gmCurrent._pConfimedYes();
   }
-  void MenuGoToParent(void);
   MenuGoToParent();
 }
 
@@ -278,7 +277,6 @@ static void ConfirmNo(void) {
   if (gmCurrent._pConfimedNo != NULL) {
     gmCurrent._pConfimedNo();
   }
-  void MenuGoToParent(void);
   MenuGoToParent();
 }
 
