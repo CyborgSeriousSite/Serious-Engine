@@ -132,7 +132,7 @@ CViewPort *pvpViewPort;
 HINSTANCE _hInstance;
 
 static void PlayDemo(void *pArgs) {
-  CTString strDemoFilename = *NEXT_ARG(CTString *);
+  CTString strDemoFilename = *NEXTARGUMENT(CTString *);
   _gmMenuGameMode = GM_DEMO;
 
   CTFileName fnDemo = "demos\\" + strDemoFilename + ".dem";
@@ -1333,7 +1333,7 @@ int SubMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     }
 
     if (CreateProcessA(strCmd, strParam, NULL, NULL, FALSE, CREATE_DEFAULT_ERROR_MODE, NULL, NULL, &cif, &pi) == FALSE) {
-      MessageBox(0, "error launching the Mod!\n", "Serious Sam", MB_OK | MB_ICONERROR);
+      MessageBox(0, L"error launching the Mod!\n", L"Serious Sam", MB_OK | MB_ICONERROR);
     }
   }
 
