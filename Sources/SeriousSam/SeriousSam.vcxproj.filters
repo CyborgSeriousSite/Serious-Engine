@@ -243,6 +243,9 @@
     <ClCompile Include="Cecil\Patches.cpp">
       <Filter>Source Files\Cecil</Filter>
     </ClCompile>
+    <ClCompile Include="Cecil\WorldEntities.cpp">
+      <Filter>Source Files\Cecil</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdLine.h">
@@ -450,6 +453,9 @@
       <Filter>Header Files\Patcher headers</Filter>
     </ClInclude>
     <ClInclude Include="Cecil\Patches.h">
+      <Filter>Header Files\Cecil headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Cecil\WorldEntities.h">
       <Filter>Header Files\Cecil headers</Filter>
     </ClInclude>
   </ItemGroup>
