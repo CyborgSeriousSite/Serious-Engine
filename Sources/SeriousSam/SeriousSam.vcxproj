@@ -301,6 +301,12 @@
     <ClInclude Include="GUI\Menus\MVar.h" />
     <ClInclude Include="GUI\Menus\MVideoOptions.h" />
     <ClCompile Include="GUI\Menus\MenuStarters.cpp" />
+    <ClCompile Include="Query\DarkPlacesQuery.cpp" />
+    <ClCompile Include="Query\GameAgentQuery.cpp" />
+    <ClCompile Include="Query\LegacyClientQuery.cpp" />
+    <ClCompile Include="Query\LegacyServerQuery.cpp" />
+    <ClCompile Include="Query\Legacy_Functions.cpp" />
+    <ClCompile Include="Query\QueryMgr.cpp" />
     <ClCompile Include="SeriousSam.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">StdH.h</PrecompiledHeaderFile>
@@ -325,6 +331,7 @@
     <ClInclude Include="LCDDrawing.h" />
     <ClInclude Include="LevelInfo.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="Query\QueryMgr.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SeriousSam.h" />
     <ClInclude Include="SplashScreen.h" />

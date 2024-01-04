@@ -35,3 +35,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "SeriousSam.h"
 #include "GUI/Menus/Menu.h"
+
+// [Cecil] Next argument in the symbol function call
+#define NEXT_ARG(Type) (*((Type *&)pArgs)++)
+
+// [Cecil] Query manager
+#include "Query/QueryMgr.h"
