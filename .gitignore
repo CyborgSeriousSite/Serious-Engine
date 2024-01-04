@@ -100,7 +100,13 @@ Sources/SeriousSkaStudio/Parser.cpp
 Sources/SeriousSkaStudio/Parser.h
 Sources/SeriousSkaStudio/Scanner.cpp
 
-
-
-
-
+# TFE-TSE Gro files (COPIED)
+/SE1_00_Music.gro
+/SE1_00_Logo.gro
+/SE1_00_Levels.gro
+/SE1_00_ExtraTools.gro
+/SE1_00_Extra.gro
+/SE1_00.gro
+/FE_Music.gro
+/FE_Levels_2.gro
+/FE_Levels.gro
