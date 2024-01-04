@@ -181,6 +181,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cecil\ScreenResolutions.cpp" />
     <ClCompile Include="CmdLine.cpp" />
     <ClCompile Include="Credits.cpp" />
     <ClCompile Include="GLSettings.cpp" />
