@@ -128,15 +128,14 @@ static void CECIL_RegisterCommand(void *pCommand) {
 
 // Display information about the patched executable
 static void PatchInfo(void) {
-  const char *strInfo = (
-    "      Patched Serious Sam executable\n"
-    "https://github.com/DreamyCecil/SamExePatch\n\n"
-
-    "- Game version: " _SE_VER_STRING "\n"
-    "- EXE version: 1.1\n"
-
-    "\n(c) Dreamy Cecil, 2022\n"
-  );
+  static CTString strInfo =
+    "\n --- Custom Serious Sam Patch ---"
+    "\ngithub.com/DreamyCecil/SamExePatch"
+    "\n"
+    "\n- Engine version: " _SE_VER_STRING
+    "\n- EXE patch version: "
+    + _pPatchAPI->strVersion
+    + "\n\n(c) Dreamy Cecil, 2022\n";
 
   CPutString(strInfo);
 };
@@ -153,10 +152,12 @@ void CECIL_Init(void) {
     extern void CECIL_ApplyScreenBlendPatch(void);
     extern void CECIL_ApplyUndecoratedPatch(void);
     extern void CECIL_ApplySoundListenPatch(void);
+    extern void CECIL_ApplyMasterServerPatch(void);
     CECIL_ApplyFOVPatch();
     CECIL_ApplyScreenBlendPatch();
     CECIL_ApplyUndecoratedPatch();
     CECIL_ApplySoundListenPatch();
+    CECIL_ApplyMasterServerPatch();
 
     CPrintF("  done!\n");
   }
