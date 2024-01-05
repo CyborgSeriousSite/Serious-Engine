@@ -107,13 +107,14 @@ extern void CECIL_ApplyFOVPatch(void) {
   pRenderView = &RenderView;
   NEW_PATCH(pRenderView, &P_RenderView, "::RenderView(...)");
 
+  /*
   // Workaround for casting raw addresses into function pointers
   union {
     ULONG ulAddress;
     FLOAT (CPerspectiveProjection3D::*pFunc)(void) const;
   } factor;
 
-  factor.ulAddress = 0x60100500; // Beginning of CPerspectiveProjection3D::MipFactor()
+  //factor.ulAddress = 0x60100500; // Beginning of CPerspectiveProjection3D::MipFactor()
   NEW_PATCH(factor.pFunc, &CProjectionPatch::P_MipFactor, "CPerspectiveProjection3D::MipFactor()");
   
   // Workaround for casting raw addresses into function pointers
@@ -123,5 +124,5 @@ extern void CECIL_ApplyFOVPatch(void) {
   } dist;
 
   dist.ulAddress = 0x601004D0; // Beginning of CPerspectiveProjection3D::MipFactor(FLOAT)
-  NEW_PATCH(dist.pFunc, &CProjectionPatch::P_MipFactorDist, "CPerspectiveProjection3D::MipFactor(FLOAT)");
+  NEW_PATCH(dist.pFunc, &CProjectionPatch::P_MipFactorDist, "CPerspectiveProjection3D::MipFactor(FLOAT)");*/
 };
