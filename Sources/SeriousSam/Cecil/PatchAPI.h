@@ -13,29 +13,25 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. */
 
-#include "StdH.h"
+#ifndef CECIL_INCL_API_H
+#define CECIL_INCL_API_H
 
-// Don't listen to in-game sounds
-BOOL _bNoListening = FALSE;
+#ifdef PRAGMA_ONCE
+  #pragma once
+#endif
 
-// Patched function
-class CSoundLibPatch : public CSoundLibrary {
+#include "Patches.h"
+
+class CPatchAPI {
   public:
-    void P_Listen(CSoundListener &sl)
-    {
-      // Ignore sound listener
-      if (_bNoListening) return;
+    CDynamicContainer<CPatch> cPatches; // Patch storage
 
-      // Original function code
-      if (sl.sli_lnInActiveListeners.IsLinked()) {
-        sl.sli_lnInActiveListeners.Remove();
-      }
-
-      sl_lhActiveListeners.AddTail(sl.sli_lnInActiveListeners);
-    };
+  public:
+    // Constructor
+    CPatchAPI();
 };
 
-extern void CECIL_ApplySoundListenPatch(void) {
-  void (CSoundLibrary::*pListen)(CSoundListener &) = &CSoundLibrary::Listen;
-  NewPatch(pListen, &CSoundLibPatch::P_Listen, "CSoundLibrary::Listen(...)");
-};
+// Declare external patch API
+extern "C" CPatchAPI *_pPatchAPI;
+
+#endif

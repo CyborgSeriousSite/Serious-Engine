@@ -246,9 +246,6 @@
     <ClCompile Include="Cecil\Patcher\patcher.cpp">
       <Filter>Source Files\Patcher</Filter>
     </ClCompile>
-    <ClCompile Include="Cecil\Patches.cpp">
-      <Filter>Source Files\Cecil</Filter>
-    </ClCompile>
     <ClCompile Include="Cecil\WorldEntities.cpp">
       <Filter>Source Files\Cecil</Filter>
     </ClCompile>
@@ -283,6 +280,9 @@
       <Filter>Source Files\Cecil</Filter>
     </ClCompile>
     <ClCompile Include="Cecil\SoundListenPatch.cpp">
+      <Filter>Source Files\Cecil</Filter>
+    </ClCompile>
+    <ClCompile Include="Cecil\PatchAPI.cpp">
       <Filter>Source Files\Cecil</Filter>
     </ClCompile>
   </ItemGroup>
@@ -501,6 +501,9 @@
       <Filter>Header Files\Query headers</Filter>
     </ClInclude>
     <ClInclude Include="Cecil\Node.h">
+      <Filter>Header Files\Cecil headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Cecil\PatchAPI.h">
       <Filter>Header Files\Cecil headers</Filter>
     </ClInclude>
   </ItemGroup>
