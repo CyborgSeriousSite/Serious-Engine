@@ -182,13 +182,13 @@ class CProjectionPatch : public CPerspectiveProjection3D {
 };
 
 extern void CECIL_ApplyFOVPatch(void) {
-  pRenderView = &RenderView;
+  /*pRenderView = &RenderView;
   NEW_PATCH(pRenderView, &P_RenderView, "::RenderView(...)");
 
   pModelRender = &BeginModelRenderingView;
   NEW_PATCH(pModelRender, &P_BeginModelRenderingView, "::BeginModelRenderingView(...)");
 
-  /*
+  
   // Workaround for casting raw addresses into function pointers
   union {
     ULONG ulAddress;
