@@ -1106,7 +1106,7 @@ int SubMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
         }
 
       } else {
-        if (bMenuForced && bMenuToggle && pgmCurrentMenu->gm_pgmParentMenu == NULL) {
+        if (bMenuForced && bMenuToggle && pgmCurrentMenu->GetParentMenu() == NULL) {
           // delete key down message so menu would not exit because of it
           msg.message = WM_NULL;
         }
