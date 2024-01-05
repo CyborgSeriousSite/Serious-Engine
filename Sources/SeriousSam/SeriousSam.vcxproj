@@ -142,6 +142,7 @@
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -184,6 +185,7 @@
     <ClCompile Include="Cecil\CecilExtensions.cpp" />
     <ClCompile Include="Cecil\EnginePatches\FOVPatch.cpp" />
     <ClCompile Include="Cecil\EnginePatches\MasterServerPatch.cpp" />
+    <ClCompile Include="Cecil\LocalCheats.cpp" />
     <ClCompile Include="Cecil\Node.cpp" />
     <ClCompile Include="Cecil\PatchAPI.cpp" />
     <ClCompile Include="Cecil\Patcher\patcher.cpp" />
