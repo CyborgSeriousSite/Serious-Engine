@@ -200,10 +200,7 @@ class CProjectionPatch : public CPerspectiveProjection3D {
 };
 
 extern void CECIL_ApplyFOVPatch(void) {
-  if (true) {
-    return;
-  }
-
+  /*
   pRenderView = &RenderView;
   NewPatch(pRenderView, &P_RenderView, "::RenderView(...)");
 
@@ -238,5 +235,5 @@ extern void CECIL_ApplyFOVPatch(void) {
 #else
   factor.ulAddress = 0x60100500; // Beginning of CPerspectiveProjection3D::MipFactor()
 #endif
-  NewPatch(factor.pFunc, &CProjectionPatch::P_MipFactor, "CPerspectiveProjection3D::MipFactor()");
+  NewPatch(factor.pFunc, &CProjectionPatch::P_MipFactor, "CPerspectiveProjection3D::MipFactor()");*/
 };
