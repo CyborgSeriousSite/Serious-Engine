@@ -156,8 +156,7 @@ CDrawPort *pdpNormal;
 CViewPort *pvpViewPort;
 HINSTANCE _hInstance;
 
-static void PlayDemo(void *pArgs) {
-  CTString strDemoFilename = *NEXTARGUMENT(CTString *);
+static void PlayDemo(const CTString &strDemoFilename) {
   _gmMenuGameMode = GM_DEMO;
 
   CTFileName fnDemo = "demos\\" + strDemoFilename + ".dem";
