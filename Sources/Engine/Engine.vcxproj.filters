@@ -1380,6 +1380,12 @@
     <ClInclude Include="Models\ImportedSkeletalAnimation.h">
       <Filter>Header Files\Models Headers</Filter>
     </ClInclude>
+    <ClInclude Include="RenderFunctions.h">
+      <Filter>Header Files\Rendering Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFunctions.h">
+      <Filter>Header Files\Base Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Base\CTString.inl">

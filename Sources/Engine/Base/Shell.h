@@ -69,6 +69,10 @@ public:
 // pointer to global shell object
 ENGINE_API extern CShell *_pShell;
 
+ENGINE_API extern INDEX ren_bAdjustFOV;
+ENGINE_API extern INDEX ren_bUseVerticalFOV;
+ENGINE_API extern INDEX ren_bAdjustAR;
+
 
 #endif  /* include-once check. */
 

@@ -111,6 +111,7 @@ CMGButton mgBack;
 
 // -------- console variable adjustment menu
 extern BOOL _bVarChanged = FALSE;
+extern INDEX sam_bBackgroundGameRender;
 
 // [Cecil] Flag for playing over other sounds
 extern void PlayMenuSound(CSoundData *psd, BOOL bOverOtherSounds) {
@@ -613,10 +614,6 @@ void RenderMouseCursor(CDrawPort *pdp) {
 }
 
 BOOL DoMenu(CDrawPort *pdp) {
-  // [Cecil] Keep trying to disable GameSpy until it falls through
-  extern void CECIL_DisableGameSpy(void);
-  CECIL_DisableGameSpy();
-
   pdp->Unlock();
   CDrawPort dpMenu(pdp, TRUE);
   dpMenu.Lock();

@@ -190,41 +190,35 @@ INDEX CTString::LengthNaked(void) const
 // strip decorations from the string
 CTString CTString::Undecorated(void) const
 {
-  // make a copy of the string to hold the result - we will rewrite it without the codes
   CTString strResult = *this;
+  const char* pchSrc = str_String;
+  char* pchDst = strResult.str_String;
 
-  // start at the beginning of both strings
-  const char *pchSrc = str_String;
-  char *pchDst = strResult.str_String;
-
-  // while the source is not finished
-  while(pchSrc[0]!=0) {
-    // if the source char is not escape char
-    if (pchSrc[0]!='^') {
-      // copy it over
+  while (pchSrc[0] != 0) {
+    if (pchSrc[0] != '^') {
       *pchDst++ = *pchSrc++;
-      // go to next char
       continue;
     }
-    // check the next char
-    switch(pchSrc[1]) {
-      // if one of the control codes, skip corresponding number of characters
-      case 'c':  pchSrc += 2+FindZero((UBYTE*)pchSrc+2,6);  break;
-      case 'a':  pchSrc += 2+FindZero((UBYTE*)pchSrc+2,2);  break;
-      case 'f':  pchSrc += 2+FindZero((UBYTE*)pchSrc+2,2);  break;
-      case 'b':  case 'i':  case 'r':  case 'o':
-      case 'C':  case 'A':  case 'F':  case 'B':  case 'I':  pchSrc+=2;  break;
-      // if it is the escape char again, skip the first escape and copy the char
-      case '^':  pchSrc++; *pchDst++ = *pchSrc++; break;
-      // if it is something else
-      default:
-        // just copy over the control char
-        *pchDst++ = *pchSrc++;
-        break;
+
+    switch (pchSrc[1]) {
+    case 'c': pchSrc += 2 + FindZero((UBYTE*)pchSrc + 2, 6); break;
+    case 'a': pchSrc += 2 + FindZero((UBYTE*)pchSrc + 2, 2); break;
+
+      // [Cecil] 1 byte instead of 2
+    case 'f': pchSrc += 2 + FindZero((UBYTE*)pchSrc + 2, 1); break;
+
+    case 'b': case 'i': case 'r': case 'o':
+    case 'C': case 'A': case 'F': case 'B': case 'I': pchSrc += 2; break;
+    case '^': pchSrc++; *pchDst++ = *pchSrc++; break;
+
+    default:
+      *pchDst++ = *pchSrc++;
+      break;
     }
   }
   *pchDst++ = 0;
-  ASSERT(strResult.Length()<=Length());
+
+  ASSERT(strResult.Length() <= Length());
   return strResult;
 }
 

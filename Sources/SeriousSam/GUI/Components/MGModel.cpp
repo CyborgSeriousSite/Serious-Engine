@@ -18,6 +18,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <Engine/CurrentVersion.h>
 #include <GameMP/LCDDrawing.h>
 #include "MGModel.h"
+#include <Engine/RenderFunctions.h>
+#include <Engine/Base/Shell.h>
+
+ENGINE_API extern INDEX ren_bAdjustFOV;
+ENGINE_API extern INDEX ren_bUseVerticalFOV;
 
 CMGModel::CMGModel(void) {
   mg_fFloorY = 0;
@@ -49,6 +54,16 @@ void CMGModel::Render(CDrawPort *pdp) {
   CPerspectiveProjection3D pr;
 
   pr.FOVL() = 30.0f; // [Cecil] Adjusted in BeginModelRenderingView()
+
+  // [Cecil] Adjust FOV for the player model
+  if (ren_bAdjustFOV && ren_bUseVerticalFOV) {
+    // Use screen ratio set in BoxPlayerModel() as the size
+    IRender::AdjustVFOV(FLOAT2D(285, 545), pr.FOVL());
+  } else {
+    // Use ratio of the entire screen as the size
+    IRender::AdjustHFOV(FLOAT2D(pdp->GetWidth(), pdp->GetHeight()), pr.FOVL());
+  }
+
   pr.ScreenBBoxL() = FLOATaabbox2D(FLOAT2D(0.0f, 0.0f), FLOAT2D((float)dpModel.GetWidth(), (float)dpModel.GetHeight()));
   pr.AspectRatioL() = 1.0f;
   pr.FrontClipDistanceL() = 0.3f;

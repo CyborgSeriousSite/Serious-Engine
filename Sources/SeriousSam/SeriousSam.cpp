@@ -39,8 +39,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // [Cecil] Sound data
 #include <Engine/Sound/SoundData.h>
 
-// [Cecil] Don't listen to in-game sounds
-extern BOOL _bNoListening;
+// [CyborgSeriousSite] Don't listen to in-game sounds
+ENGINE_API extern INDEX snd_bNoListening;
 
 extern CGame *_pGame = NULL;
 
@@ -59,7 +59,6 @@ extern PIX2D _vpixScreenRes = PIX2D(0, 0);
 static INDEX sam_iMaxFPSActive = 500;
 static INDEX sam_iMaxFPSInactive = 10;
 static INDEX sam_bPauseOnMinimize = TRUE; // auto-pause when window has been minimized
-static INDEX sam_bWideScreen = FALSE; // [Cecil] Dummy; replaced with 'sam_bAdjustForAspectRatio'
 extern FLOAT sam_fPlayerOffset = 0.0f;
 
 // Display mode settings
@@ -133,7 +132,23 @@ extern CTString sam_strGameName = "serioussamse";
 extern CTString sam_strTechTestLevel = "Levels\\LevelsMP\\TechTest.wld";
 extern CTString sam_strTrainingLevel = "Levels\\KarnakDemo.wld";
 
+extern INDEX sam_bBackgroundGameRender = 1;
+extern INDEX sam_bAdjustForAspectRatio = TRUE;
+extern INDEX sam_bOptionTabs = TRUE;
+extern INDEX sam_bProperTextScaling = 1;
+extern FLOAT sam_fMenuTextScale = 1.0f;
+
 ENGINE_API extern INDEX snd_iFormat;
+
+// [Cecil] Set new LCD drawport for Game
+void SetDrawportForGame(CDrawPort* pdpSet) {
+  _pGame->LCDSetDrawport(pdpSet);
+
+  // Adjust aspect ratio for the menu
+  if (sam_bProperTextScaling) {
+    pdpSet->dp_fWideAdjustment = ((FLOAT)pdpSet->GetHeight() / (FLOAT)pdpSet->GetWidth()) * (4.0f / 3.0f);
+  }
+};
 
 // Main window canvas
 CDrawPort *pdp;
@@ -459,9 +474,6 @@ BOOL Init(HINSTANCE hInstance, int nCmdShow, CTString strCmdLine) {
     FatalError("%s", strError);
   }
 
-  // [Cecil] Custom initialization
-  CECIL_Init();
-
   // always disable all warnings when in serious sam
   _pShell->Execute("con_bNoWarnings=1;");
 
@@ -475,7 +487,6 @@ BOOL Init(HINSTANCE hInstance, int nCmdShow, CTString strCmdLine) {
   _pShell->DeclareSymbol("persistent INDEX sam_iGfxAPI;",         &sam_iGfxAPI);
   _pShell->DeclareSymbol("persistent INDEX sam_bFirstStarted;", &sam_bFirstStarted);
   _pShell->DeclareSymbol("persistent INDEX sam_bAutoAdjustAudio;", &sam_bAutoAdjustAudio);
-  _pShell->DeclareSymbol("persistent user INDEX sam_bWideScreen;", &sam_bWideScreen);
   _pShell->DeclareSymbol("persistent user FLOAT sam_fPlayerOffset;",  &sam_fPlayerOffset);
   _pShell->DeclareSymbol("persistent user INDEX sam_bAutoPlayDemos;", &sam_bAutoPlayDemos);
   _pShell->DeclareSymbol("persistent user INDEX sam_iMaxFPSActive;",    &sam_iMaxFPSActive);
@@ -507,6 +518,12 @@ BOOL Init(HINSTANCE hInstance, int nCmdShow, CTString strCmdLine) {
   _pShell->DeclareSymbol("user INDEX sam_bMenuHiScore;",  &sam_bMenuHiScore);
   _pShell->DeclareSymbol("user INDEX sam_bToggleConsole;",&sam_bToggleConsole);
   _pShell->DeclareSymbol("INDEX sam_iStartCredits;", &sam_iStartCredits);
+
+  _pShell->DeclareSymbol("user INDEX sam_bBackgroundGameRender;", &sam_bBackgroundGameRender);
+  _pShell->DeclareSymbol("persistent user INDEX sam_bAdjustForAspectRatio;", &sam_bAdjustForAspectRatio);
+  _pShell->DeclareSymbol("user INDEX sam_bOptionTabs;", &sam_bOptionTabs);
+  _pShell->DeclareSymbol("user INDEX sam_bProperTextScaling;", &sam_bProperTextScaling);
+  _pShell->DeclareSymbol("user FLOAT sam_fMenuTextScale;", &sam_fMenuTextScale);
 
   InitializeGame();
   _pNetwork->md_strGameID = sam_strGameName;
@@ -785,7 +802,7 @@ void DoGame(void) {
       }
 
       // [Cecil] Don't listen to in-game sounds if rendering the game in the menu
-      _bNoListening = bMenuActive;
+      snd_bNoListening = bMenuActive;
 
       // handle pretouching of textures and shadowmaps
       pdp->Unlock();

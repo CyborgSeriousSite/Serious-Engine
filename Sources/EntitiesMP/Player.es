@@ -392,6 +392,7 @@ extern FLOAT plr_fViewDampLimitGroundDn = 0.4f;
 extern FLOAT plr_fViewDampLimitWater    = 0.1f;
 static FLOAT plr_fFrontClipDistance = 0.25f;
 static FLOAT plr_fFOV = 90.0f;
+extern INDEX plr_bRedScreenOnDamage  = TRUE;
 static FLOAT net_tmLatencyAvg;
 extern INDEX plr_bRenderPicked = FALSE;
 extern INDEX plr_bRenderPickedParticles = FALSE;
@@ -822,6 +823,9 @@ void CPlayer_OnInitClass(void)
 
   // player appearance interface
   _pShell->DeclareSymbol("INDEX SetPlayerAppearance(INDEX, INDEX, INDEX, INDEX);", &SetPlayerAppearance);
+  
+  //[CyborgSeriousSite] Red Screen On Damage Control
+  _pShell->DeclareSymbol("persistent user INDEX plr_bRedScreenOnDamage;",  &plr_bRedScreenOnDamage);
 
   // call player weapons persistant variable initialization
   extern void CPlayerWeapons_Init(void);
@@ -4884,6 +4888,11 @@ functions:
     if( tmSinceWounding<4.0f) {
       // decrease damage ammount
       if( tmSinceWounding<0.001f) { ulA = (ulA+64)/2; }
+    }
+    
+    //[CyborgSeriousSite] Red Screen On Damage Control
+    if (!plr_bRedScreenOnDamage) {
+      ulA = 0;
     }
 
     // add rest of blend ammount

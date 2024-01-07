@@ -117,6 +117,11 @@ ENGINE_API extern INDEX tmp_ai[10] = { 0 };
 ENGINE_API extern INDEX tmp_fAdd   = 0.0f;
 ENGINE_API extern INDEX tmp_i      = 0;
 
+//[CyborgSeriousSite] Resolution Fixes Variables
+ENGINE_API extern INDEX ren_bAdjustFOV = TRUE;
+ENGINE_API extern INDEX ren_bUseVerticalFOV = TRUE;
+ENGINE_API extern INDEX ren_bAdjustAR = TRUE;
+
 void CShellSymbol::Clear(void)
 {
   ss_istType = -1;
@@ -560,6 +565,9 @@ void CShell::Initialize(void)
   DeclareSymbol("user CTString RemoveSubstring(CTString, CTString);", &RemoveSubstringCfunc);
   DeclareSymbol("user CTString ToUpper(CTString);", &ToUpperCfunc);
   DeclareSymbol("user CTString ToLower(CTString);", &ToLowerCfunc);
+  DeclareSymbol("persistent user INDEX ren_bAdjustFOV;", &ren_bAdjustFOV);
+  DeclareSymbol("persistent user INDEX ren_bUseVerticalFOV;", &ren_bUseVerticalFOV);
+  DeclareSymbol("persistent user INDEX ren_bAdjustAR;", &ren_bAdjustAR);
 }
 
 static BOOL _iParsing = 0;

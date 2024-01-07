@@ -56,7 +56,7 @@ void CRenderer::InitClippingRectangle(PIX pixMinI, PIX pixMinJ, PIX pixSizeI, PI
 };
 
 // Pointer to CRenderer::Render()
-static FuncPtr<void (CRenderer::*)(void)> _pRender = CHOOSE_FOR_GAME(0x601A8CD0, 0x60178DB0, 0x601B4A00);
+//static FuncPtr<void (CRenderer::*)(void)> _pRender = CHOOSE_FOR_GAME(0x601A8CD0, 0x60178DB0, 0x601B4A00);
 
 // RenderView() copy
 static void RenderViewCopy(CWorld &woWorld, CEntity &enViewer, CAnyProjection3D &apr, CDrawPort &dp) {
@@ -71,7 +71,7 @@ static void RenderViewCopy(CWorld &woWorld, CEntity &enViewer, CAnyProjection3D 
   }
 
   // Retrieve renderer from '_areRenderers[0]'
-  CRenderer &re = *(CRenderer *)(ULONG *)CHOOSE_FOR_GAME(0x6029C4F8, 0x6026C538, 0x602CDAF0);
+  CRenderer &re = *(CRenderer *)(ULONG *)0x6029C4F8;
 
   re.re_penViewer = &enViewer;
   re.re_pcspoViewPolygons = NULL;
@@ -84,9 +84,6 @@ static void RenderViewCopy(CWorld &woWorld, CEntity &enViewer, CAnyProjection3D 
 
   re.re_bRenderingShadows = FALSE;
   re.re_ubLightIllumination = 0;
-
-  // Call CRenderer::Render() from the pointer
-  (re.*_pRender.pFunction)();
 };
 
 // Patched function
@@ -171,10 +168,10 @@ class CProjectionPatch : public CPerspectiveProjection3D {
       if (sam_bFixViewmodelFOV && (_pGame->gm_csComputerState == CS_OFF || _pGame->gm_csComputerState == CS_ONINBACKGROUND))
       {
         // Calling from CRenderer::RenderModels()
-        const ULONG ulRenderModels = CHOOSE_FOR_GAME(0x601A462D, 0x6017470D, 0x601AF17E);
+        const ULONG ulRenderModels = 0x0;//CHOOSE_FOR_GAME(0x601A462D, 0x6017470D, 0x601AF17E);
 
         // Calling from BeginModelRenderingView()
-        const ULONG ulModelView = CHOOSE_FOR_GAME(0x6014FA89, 0x6011FB69, 0x60157F59);
+        const ULONG ulModelView = 0x0/*CHOOSE_FOR_GAME(0x6014FA89, 0x6011FB69, 0x60157F59)*/;
         
         // Not calling from CRenderer::RenderModels() but still calling from BeginModelRenderingView()
         if (!CallingFrom(ulRenderModels, 5) && CallingFrom(ulModelView, 5)) {

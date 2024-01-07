@@ -39,3 +39,6 @@ struct KeyData {
 };
 
 extern CGame *_pGame;
+
+// [Cecil] Set new LCD drawport for Game
+void SetDrawportForGame(CDrawPort* pdpSet);

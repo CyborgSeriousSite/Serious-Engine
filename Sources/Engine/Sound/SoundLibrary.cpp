@@ -88,10 +88,10 @@ static INDEX _iLastEnvType = 1234;
 static FLOAT _fLastEnvSize = 1234;
 static FLOAT _fLastPanning = 1234;
 
-
 // TEMP! - for writing mixer buffer to file
 static FILE *_filMixerBuffer;
 static BOOL _bOpened = FALSE;
+ENGINE_API extern INDEX snd_bNoListening = FALSE;
 
 
 #define WAVEOUTBLOCKSIZE 1024
@@ -1347,6 +1347,8 @@ void CSoundLibrary::RemoveSoundAware(CSoundData &CsdRemove) {
 // listen from this listener this frame
 void CSoundLibrary::Listen(CSoundListener &sl)
 {
+  // Ignore sound listener
+  if (snd_bNoListening) return;
   // just add it to list
   if (sl.sli_lnInActiveListeners.IsLinked()) {
     sl.sli_lnInActiveListeners.Remove();

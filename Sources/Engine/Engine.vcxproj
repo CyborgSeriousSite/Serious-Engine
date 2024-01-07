@@ -738,6 +738,7 @@
     <ClInclude Include="Base\Unzip.h" />
     <ClInclude Include="Base\Updateable.h" />
     <ClInclude Include="Base\UpdateableRT.h" />
+    <ClInclude Include="DataFunctions.h" />
     <ClInclude Include="GameAgent\GameAgent.h" />
     <ClInclude Include="GameAgent\MSLegacy.h" />
     <ClInclude Include="Math\AABBox.h" />
@@ -784,6 +785,7 @@
     <ClInclude Include="Models\ImportedMesh.h" />
     <ClInclude Include="Models\ImportedSkeletalAnimation.h" />
     <ClInclude Include="Models\ImportedSkeleton.h" />
+    <ClInclude Include="RenderFunctions.h" />
     <ClInclude Include="Sound\al_functions.h" />
     <ClInclude Include="Sound\DSound.h" />
     <ClInclude Include="Sound\eax.h" />

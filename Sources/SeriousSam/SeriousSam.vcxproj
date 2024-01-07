@@ -183,18 +183,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cecil\CecilExtensions.cpp" />
-    <ClCompile Include="Cecil\EnginePatches\FOVPatch.cpp" />
-    <ClCompile Include="Cecil\EnginePatches\MasterServerPatch.cpp" />
-    <ClCompile Include="Cecil\LocalCheats.cpp" />
     <ClCompile Include="Cecil\Node.cpp" />
-    <ClCompile Include="Cecil\PatchAPI.cpp" />
-    <ClCompile Include="Cecil\Patcher\patcher.cpp" />
-    <ClCompile Include="Cecil\EnginePatches\ScreenBlendPatch.cpp" />
     <ClCompile Include="Cecil\ScreenResolutions.cpp" />
-    <ClCompile Include="Cecil\EnginePatches\SoundListenPatch.cpp" />
-    <ClCompile Include="Cecil\EnginePatches\UndecoratedPatch.cpp" />
     <ClCompile Include="Cecil\WindowModes.cpp" />
-    <ClCompile Include="Cecil\WorldEntities.cpp" />
     <ClCompile Include="CmdLine.cpp" />
     <ClCompile Include="Credits.cpp" />
     <ClCompile Include="GLSettings.cpp" />
@@ -250,13 +241,8 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClInclude Include="Cecil\CecilExtensions.h" />
     <ClInclude Include="Cecil\Node.h" />
-    <ClInclude Include="Cecil\PatchAPI.h" />
-    <ClInclude Include="Cecil\Patcher\patcher.h" />
-    <ClInclude Include="Cecil\Patcher\patcher_defines.h" />
-    <ClInclude Include="Cecil\EnginePatches\Patches.h" />
     <ClInclude Include="Cecil\ScreenResolutions.h" />
     <ClInclude Include="Cecil\WindowModes.h" />
-    <ClInclude Include="Cecil\WorldEntities.h" />
     <ClInclude Include="GUI\Components\MenuGadget.h" />
     <ClInclude Include="GUI\Components\MGArrow.h" />
     <ClInclude Include="GUI\Components\MGButton.h" />

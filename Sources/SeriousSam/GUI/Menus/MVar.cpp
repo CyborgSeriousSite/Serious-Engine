@@ -23,6 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "GUI/Menus/MenuManager.h"
 extern CMenuGadget *_pmgLastActivatedGadget;
 extern CMenuGadget *_pmgUnderCursor;
+extern INDEX sam_bOptionTabs;
 
 extern BOOL _bVarChanged;
 

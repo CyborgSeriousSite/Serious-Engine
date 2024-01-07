@@ -153,6 +153,7 @@ public:
 
 // pointer to global sound library object
 ENGINE_API extern CSoundLibrary *_pSound;
+ENGINE_API extern INDEX snd_bNoListening;
 
 
 #endif  /* include-once check. */
