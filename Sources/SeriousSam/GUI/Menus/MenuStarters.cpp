@@ -436,7 +436,7 @@ void StartPlayerModelLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Models\\Player\\");
-  gmCurrent.gm_fnmSelected = _strLastPlayerAppearance;
+  gmCurrent.gm_strSelected = _strLastPlayerAppearance;
   gmCurrent.gm_fnmExt = CTString(".amc");
   gmCurrent.gm_pAfterFileChosen = &LSLoadPlayerModel;
   gmCurrent.gm_mgNotes.SetText("");
@@ -454,7 +454,7 @@ void StartControlsLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Controls\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".ctl");
   gmCurrent.gm_pAfterFileChosen = &LSLoadControls;
   gmCurrent.gm_mgNotes.SetText("");
@@ -472,7 +472,7 @@ void StartCustomLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Scripts\\CustomOptions\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".cfg");
   gmCurrent.gm_pAfterFileChosen = &LSLoadCustom;
   gmCurrent.gm_mgNotes.SetText("");
@@ -490,7 +490,7 @@ void StartAddonsLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Scripts\\Addons\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".ini");
   gmCurrent.gm_pAfterFileChosen = &LSLoadAddon;
   gmCurrent.gm_mgNotes.SetText("");
@@ -508,7 +508,7 @@ void StartModsLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Mods\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".des");
   gmCurrent.gm_pAfterFileChosen = &LSLoadMod;
 
@@ -525,7 +525,7 @@ void StartNetworkSettingsMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Scripts\\NetSettings\\");
-  gmCurrent.gm_fnmSelected = sam_strNetworkSettings;
+  gmCurrent.gm_strSelected = sam_strNetworkSettings;
   gmCurrent.gm_fnmExt = CTString(".ini");
   gmCurrent.gm_pAfterFileChosen = &LSLoadNetSettings;
 
@@ -554,7 +554,7 @@ void StartPatchOptionsMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = FALSE;
   gmCurrent.gm_fnmDirectory = CTString("Scripts\\ClassicsPatch\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".cfg");
   gmCurrent.gm_pAfterFileChosen = &LSLoadPatchConfig;
   gmCurrent.gm_mgNotes.SetText("");
@@ -646,7 +646,7 @@ void StartDemoLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("Demos\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".dem");
   gmCurrent.gm_pAfterFileChosen = &LSLoadDemo;
   gmCurrent.gm_mgNotes.SetText("");
@@ -670,7 +670,7 @@ void StartDemoSaveMenu(void) {
   gmCurrent.gm_bSave = TRUE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("Demos\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmBaseName = CTString("Demo");
   gmCurrent.gm_fnmExt = CTString(".dem");
   gmCurrent.gm_pAfterFileChosen = &LSSaveDemo;
@@ -692,7 +692,7 @@ void StartNetworkQuickLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\Network\\Quick\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSLoadNetwork;
   SetQuickLoadNotes();
@@ -712,7 +712,7 @@ void StartNetworkLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\Network\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSLoadNetwork;
   gmCurrent.gm_mgNotes.SetText("");
@@ -736,7 +736,7 @@ void StartNetworkSaveMenu(void) {
   gmCurrent.gm_bSave = TRUE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\Network\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmBaseName = CTString("SaveGame");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSSaveAnyGame;
@@ -758,7 +758,7 @@ void StartSplitScreenQuickLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\SplitScreen\\Quick\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSLoadSplitScreen;
   SetQuickLoadNotes();
@@ -778,7 +778,7 @@ void StartSplitScreenLoadMenu(void) {
   gmCurrent.gm_bSave = FALSE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\SplitScreen\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSLoadSplitScreen;
   gmCurrent.gm_mgNotes.SetText("");
@@ -802,7 +802,7 @@ void StartSplitScreenSaveMenu(void) {
   gmCurrent.gm_bSave = TRUE;
   gmCurrent.gm_bManage = TRUE;
   gmCurrent.gm_fnmDirectory = CTString("SaveGame\\SplitScreen\\");
-  gmCurrent.gm_fnmSelected = CTString("");
+  gmCurrent.gm_strSelected = CTString("");
   gmCurrent.gm_fnmBaseName = CTString("SaveGame");
   gmCurrent.gm_fnmExt = CTString(".sav");
   gmCurrent.gm_pAfterFileChosen = &LSSaveAnyGame;
